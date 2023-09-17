@@ -1,0 +1,1 @@
+# here i will upload my soltuions of question in a2z dsa sheet. my aim would be to upload at least 1 soltuion every da. i have to be consistent. i can do it.	
