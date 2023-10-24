@@ -43,6 +43,7 @@ vector<vector<int>> combinationSum2(vector<int> &ar, int n, int k) {
 // cant choose 2nd '2' as it will give same {1,1,1,2}. so we retrack to {1,1} now we choose 1st '2'
 // so aux = {1,1,2}sum = k;
 
+//striver way and my implementation
 #include<bits/stdc++.h>
 using namespace std;
 void code(vector<vector<int>>&ans, vector<int> ar, vector<int>aux, int n, int k, int i, int sum) {
@@ -68,8 +69,6 @@ void code(vector<vector<int>>&ans, vector<int> ar, vector<int>aux, int n, int k,
 		}
 	}
 }
-
-
 vector<vector<int>> combinationSum2(vector<int> &ar, int n, int k) {
 	// Write your code here abhinay bir, never give up
 	vector<vector<int>> ans;
