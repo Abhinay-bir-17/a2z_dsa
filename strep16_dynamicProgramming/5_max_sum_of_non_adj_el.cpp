@@ -1,3 +1,19 @@
+// tablulation with  not constant sc , done on 20th dec
+#include <bits/stdc++.h>
+int maximumNonAdjacentSum(vector<int> &ar) {
+	// Write your code here.
+	int n = ar.size();
+	if (n == 1)return ar[0];
+	if (n == 2)return max(ar[0], ar[1]);
+
+	vector<int>dp(n, 0);
+	dp[0] = ar[0];
+	dp[1] = max(ar[0], ar[1]);
+	for (int i = 2; i < n; i++) {
+		dp[i] = max(dp[i - 1], ar[i] + dp[i - 2]);
+	} return dp[n - 1];
+}
+
 // tabulation method: O(n) with constant space complexity
 
 // i submitted this nd it worked lool
@@ -16,6 +32,8 @@ int maximumNonAdjacentSum(vector<int> &ar) {
 	} return max(a, b);
 }
 
+
+
 // recursion approach: doing on my own, from left to right : WORKED
 int code(int i, int n, vector<int>ar) {
 	if (i >= n)return 0;
@@ -28,7 +46,6 @@ int code(int i, int n, vector<int>ar) {
 }
 #include <bits/stdc++.h>
 int maximumNonAdjacentSum(vector<int> &ar) {
-
 
 	int n = ar.size();
 	return code(0, n, ar);
@@ -49,4 +66,5 @@ int maximumNonAdjacentSum(vector<int> &ar) {
 	int n = ar.size();
 	vector<int>dp(n, -1);
 	return code(0, n, ar, dp);
-}
+}////////////
+

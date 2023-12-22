@@ -26,12 +26,7 @@ const ll inf = 1e9 + 7;
 const int M = 1e9 + 7;
 const int N = 1e5 + 10;
 ll fact[N];
-void code1(vi v, int n) {
 
-}
-void code2(int n) {
-
-}
 // tc is O(n) as dp(5)-> dp(4)->dp(3)->dp(2)->dp(1), for dp(4) = dp(3)+dp(2), its already
 // calcculated .
 // s.c is O(n) for n recursive calls in call stack, anothre O(n) for dp vector
@@ -44,7 +39,8 @@ void code3(vi &dp, int n) {
 	return dp[n];
 }
 
-// tc is O(n) , and s.c is only O(n) for dp vector
+// tc is O(n) , and s.c is only O(n) for dp vector , tabluation
+// means bottom up
 void tabulation_method(vi &dp, int n) {
 	dp[0] = 0; dp[1] = 1;
 	for (int i = 2; i <= n; i++)dp[i] = dp[i - 1] + d[i - 2];
@@ -66,7 +62,7 @@ void better_way(vi dp, int n) {
 void code() {
 	// code here abhinay bir come on you can do it okay.
 	int n; cin >> n;
-	if (n == 0 || n == 1) {cout << n << endl; return;}
+	//if (n == 0 || n == 1) {cout << n << endl; return;}
 	vi dp(n + 1, -1);
 	cout << code3(dp, n);
 }
@@ -81,5 +77,4 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(0); cout.tie(0);
 	int t; cin >> t; while (t--)code();
-
 }

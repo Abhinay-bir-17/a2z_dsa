@@ -1,31 +1,26 @@
 
-// recursion method: giving tle ofc
-int code3(int i, int n) {
-	if (i == n)return 1;
-	if (i > n)return 0;
 
-	return (code3(i + 1, n), code3(i + 2, n));
+// tablulaiton method aka bottom up
+class Solution {
+public:
+	int code(vector<int>&dp, int n) {
+		if (n < 2)return 1;
+		if (dp[n] != -1)return dp[n];
+		dp[n] = code(dp, n - 1) + code(dp, n - 2);
+		return dp[n];
+	}
+	int climbStairs(int n) {
+		vector<int>dp(n + 1, -1);
+		return code(dp, n);
+	}
+};
+
+//  best method
+int climbStairs(int n) {
+	if (n < 2)return 1;
+	int a = 1, b = 1, sum = 0;
+	for (int i = 2; i <= n; i++) {
+		sum = a + b;
+		a = b; b = sum;
+	} return sum;
 }
-void code() {
-	// code here abhinay bir come on you can do it okay.
-	int n; cin >> n;
-
-}
-
-// memorization method: giving tle!
-#include <bits/stdc++.h>
-int code3(int i, int n, vector<int>dp) {
-	if (i == n)return 1;
-	if (i > n)return 0;
-	if (dp[i] != -1)return dp[i];
-	dp[i] = (code3(i + 1, n, dp) + code3(i + 2, n, dp));
-	return dp[i];
-}
-int countDistinctWays(int n) {
-	//  Write your code here.
-	vector<int> dp(n + 1, -1);
-
-	return code3(0, n, dp);
-}
-
-//
