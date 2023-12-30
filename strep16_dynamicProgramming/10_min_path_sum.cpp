@@ -13,5 +13,4 @@ int minSumPath(vector<vector<int>> &ar) {
 		}
 	}
 	return ar[m - 1][n - 1];
-
 }
