@@ -1,3 +1,4 @@
+// nlogn approach
 class Solution {
 public:
   int longestConsecutive(vector<int>& ar) {
@@ -17,3 +18,41 @@ public:
     } return ans;
   }
 };
+
+
+class Solution {
+public:
+  int longestConsecutive(vector<int>& ar) {
+    // write code below abhinay bir you can do it okay!!!!!!!!!!!!!!!!!!!!!!! abhinay never give up okay lol?
+    int n = ar.size();
+    if (n == 0)return 0;
+    unordered_set<int> st;
+    for (int i = 0; i < n; i++) {
+      st.insert(ar[i]);
+    } int ans = 1;
+    for (auto it : st) {
+      // if the prev no is not in the set
+      if (st.find(it - 1) == st.end()) {
+        int cnt = 1; int x = it;
+        while ( st.find(x + 1) != st.end()) {
+          x += 1; cnt += 1;
+        } ans = max(ans, cnt);
+      }
+    } return ans;
+
+
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
